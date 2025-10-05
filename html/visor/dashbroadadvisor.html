@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>ระบบจัดการโครงงาน - อาจารย์ที่ปรึกษา</title>
+</head>
+<body>
+    <!-- Banner Header -->
+    <div class="banner">
+        <div class="banner-content">
+            <div class="banner-left">
+                <div class="logo">IT</div>
+                <div class="banner-text">
+                    <h1>ระบบจัดการโครงงานพิเศษและสหกิจศึกษา</h1>
+                    <p>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+                </div>
+            </div>
+            <div class="banner-user">
+                <div class="user-avatar">F</div>
+                <div class="user-name">Final Devil</div>
+                <a href="../log_sing/login.html" class="logout-btn">ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                เมนู - อาจารย์ที่ปรึกษา
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#" class="active">
+                    <div class="icon"></div>
+                    แดชบอร์ด
+                </a></li>
+                <li><a href="project_advisor.html">
+                    <div class="icon"></div>
+                    โครงงานที่ปรึกษา
+                </a></li>
+                <li><a href="progress_review.html">
+                    <div class="icon"></div>
+                    ตรวจสอบความก้าวหน้า
+                </a></li>
+                <li><a href="proposal_approval.html">
+                    <div class="icon"></div>
+                    ตรวจสอบการสอบหัวข้อ
+                </a></li>
+                <li><a href="final_exam_review.html">
+                    <div class="icon"></div>
+                    ตรวจการสอบจบ
+                </a></li>
+                <li><a href="document_review.html">
+                    <div class="icon"></div>
+                    ตรวจเอกสาร
+                </a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2>แดชบอร์ด - อาจารย์ที่ปรึกษา</h2>
+                <div class="breadcrumb">หน้าแรก > แดชบอร์ดอาจารย์ที่ปรึกษา</div>
+            </div>
+            <div class="content-body">
+                <!-- Status Cards -->
+                <div class="status-cards">
+                    <a href="project_advisor.html">
+                        <div class="status-card">
+                            <div class="number">2</div>
+                            <div class="label">โครงงานที่ปรึกษา</div>
+                        </div>
+                    </a>
+                    <div class="status-card status-card-dropdown" id="card-dropdown">
+                        <div class="number">8</div>
+                        <div class="label">โครงงานที่ต้องตรวจ</div>
+                        <div class="dropdown-menu">
+                            <a href="progress_review.html"><button class="dropdown-btn">ตรวจความก้าวหน้า</button></a>
+                            <a href="proposal_approval.html"><button class="dropdown-btn">ตรวจการสอบหัวข้อ</button></a>
+                            <a href="final_exam_review.html"><button class="dropdown-btn">ตรวจสอบการสอบจบ</button></a>
+                            <a href="document_review.html"><button class="dropdown-btn">ตรวจเอกสาร</button></a>
+                        </div>
+                    </div>
+                    <a href="#">
+                        <div class="status-card">
+                            <div class="number">3</div>
+                            <div class="label">รอการอนุมัติ</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Information Section -->
+                <div class="info-section">
+                    <h3>ข้อมูลการปรึกษาโครงงาน</h3>
+                    <p>
+                        หน้านี้แสดงข้อมูลภาพรวมของการปรึกษาโครงงาน รวมถึงจำนวนนักศึกษาที่ปรึกษา 
+                        โครงงานที่ต้องตรวจสอบ และการอนุมัติต่างๆ ที่รอดำเนินการ คุณสามารถใช้เมนูด้านซ้าย
+                        เพื่อเข้าถึงฟังก์ชันต่างๆ เช่น การตรวจความก้าวหน้า การอนุมัติหัวข้อ 
+                        และการให้คำแนะนำแก่นักศึกษา
+                    </p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>ระบบจัดการโครงงานพิเศษและสหกิจศึกษา</p>
+        <div class="footer-links">
+            <a href="/help">ช่วยเหลือ</a>
+            <a href="/contact">ติดต่อ</a>
+            <a href="/privacy">นโยบายความเป็นส่วนตัว</a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('card-dropdown').addEventListener('click', function(e) {
+            // ป้องกันการคลิกปุ่มใน dropdown ไม่ให้ปิดเมนู
+            if (e.target.classList.contains('dropdown-btn')) return;
+            this.classList.toggle('active');
+        });
+
+        // ปิด dropdown เมื่อคลิกนอกเมนู
+        document.addEventListener('click', function(e) {
+            const card = document.getElementById('card-dropdown');
+            if (!card.contains(e.target)) {
+                card.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/main.css">
+    <title>ระบบจัดการโครงงาน - ผู้ดูแลระบบ</title>
+</head>
+<body>
+    <!-- Banner Header -->
+    <div class="banner">
+        <div class="banner-content">
+            <div class="banner-left">
+                <div class="logo">IT</div>
+                <div class="banner-text">
+                    <h1>ระบบจัดการโครงงานพิเศษและสหกิจศึกษา</h1>
+                    <p>ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+                </div>
+            </div>
+            <div class="banner-user">
+                <div class="user-avatar">F</div>
+                <div class="user-name">Final Devil</div>
+                <a href="../log_sing/login.html" class="logout-btn">ออกจากระบบ</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                เมนู - ผู้ดูแลระบบ
+            </div>
+                <ul class="sidebar-menu">
+                    <li><a href="dashbroadadmin.html" class="active">
+                        <div class="icon"></div>
+                        แดชบอร์ดระบบ
+                    </a></li>
+                    <li><a href="user-management.html">
+                        <div class="icon"></div>
+                        จัดการผู้ใช้
+                    </a></li>
+                    <li><a href="project-management.html">
+                        <div class="icon"></div>
+                        จัดการโครงงาน
+                    </a></li>
+                    <li><a href="committee-assignment.html">
+                        <div class="icon"></div>
+                        จัดการกรรมการสอบ
+                    </a></li>
+                </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="content-header">
+                <h2>แดชบอร์ด - ผู้ดูแลระบบ</h2>
+                <div class="breadcrumb">หน้าแรก > แดชบอร์ดผู้ดูแลระบบ</div>
+            </div>
+            <div class="content-body">
+                <div class="dashboard-section">
+                    <div class="chart-container">
+                        <canvas id="projectChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="status-cards">
+                    <div class="status-card">
+                        <div class="number">156</div>
+                        <div class="label">โครงงานทั้งหมดในระบบ</div>
+                    </div>
+                    <div class="status-card">
+                        <div class="number">89</div>
+                        <div class="label">นักศึกษาในระบบ</div>
+                    </div>
+                    <div class="status-card">
+                        <div class="number">25</div>
+                        <div class="label">อาจารย์ในระบบ</div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section grid-2">
+                    <div class="recent-activities">
+                        <div class="section-title">กิจกรรมล่าสุด</div>
+                        <ul class="activity-list">
+                            <li>
+                                เพิ่มผู้ใช้ใหม่: <strong>นายสมชาย ใจดี</strong><br>
+                                <span class="activity-time">เมื่อ 2 ชั่วโมงที่ผ่านมา</span>
+                            </li>
+                            <li>
+                                โครงงาน “ระบบจองห้องเรียนออนไลน์” ได้รับอนุมัติ<br>
+                                <span class="activity-time">เมื่อ 5 ชั่วโมงที่ผ่านมา</span>
+                            </li>
+                            <li>
+                                ลบผู้ใช้: <strong>อาจารย์นิภาพร</strong><br>
+                                <span class="activity-time">เมื่อ 1 วันก่อน</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="system-logs">
+                        <div class="section-title">บันทึกการทำงานระบบ</div>
+                        <ul class="log-list">
+                            <li><span class="log-time">[10:23]</span> ระบบสำรองข้อมูลอัตโนมัติสำเร็จ</li>
+                            <li><span class="log-time">[09:11]</span> มีการเข้าสู่ระบบจาก IP 192.168.1.12</li>
+                            <li><span class="log-time">[07:45]</span> ตรวจพบการแก้ไขข้อมูลผู้ใช้ 3 ราย</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 ภาควิชาเทคโนโลยีสารสนเทศ คณะเทคโนโลยีและการจัดการอุตสาหกรรม</p>
+        <p>ระบบจัดการโครงงานพิเศษและสหกิจศึกษา</p>
+        <div class="footer-links">
+            <a href="/help">ช่วยเหลือ</a>
+            <a href="/contact">ติดต่อ</a>
+            <a href="/privacy">นโยบายความเป็นส่วนตัว</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // สร้างกราฟภาพรวม
+        const ctx = document.getElementById('projectChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['รออนุมัติ', 'กำลังดำเนินการ', 'เสร็จสิ้น'],
+                datasets: [{
+                    data: [30, 70, 56],
+                    backgroundColor: ['#facc15', '#60a5fa', '#34d399'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
